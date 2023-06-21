@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Couple Matching System</title>
+     <script>
+        // 현재 URL에서 쿼리 파라미터를 추출하는 함수
+        function getQueryParams() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const params = {};
+            for (const [key, value] of urlParams) {
+                params[key] = value;
+            }
+            return params;
+        }
+    
+        // URL에서 쿼리 파라미터 값 추출
+        const queryParams = getQueryParams();
+        console.log(queryParams);
+        const key = queryParams.key;
+        const gradevalue = queryParams.grade;
+        const agevalue = queryParams.age;
+        console.log("{{grade}}")
+        function handleButtonClick(value) {
+            // 페이지 이동과 동시에 값을 전달하는 로직을 작성합니다.
+            // 예시로 새 창에서 다른 페이지로 이동하는 방식을 사용합니다.
+            const url = '/couple/matching4/{{grade}}/{{age}}/' + encodeURIComponent(value) + '/';
+            window.open(url, '_self');
+        }
+    </script>
+    <style>
+        
+        @font-face {
+            font-family: 'TTWanjudaedunsancheB';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/TTWanjudaedunsancheB.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        *{
+            font-family: 'TTWanjudaedunsancheB';
+        }
+        /* CSS 스타일을 추가합니다 */
+        body {
+            font-family: 'TTWanjudaedunsancheB';
+            background-color: #f5f5f5;
+        }
+
+        .header {
+            background-color: #333;
+            padding: 10px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .mid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            width: 100%;
+        }
+
+        .mid div {
+            background-color: #fff;
+            padding: 50px 200px 50px 200px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .yesbtn,
+        .nobtn {
+            font-size:40px;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .answer1,
+        .answer2,
+        .answer3,
+        .answer4,
+        .answer5,
+        .answer6,
+        .answer7,
+        .answer8 {
+            font-size:40px;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .yesbtn:hover,
+        .nobtn:hover {
+            background-color: #555;
+        }
+        a { text-decoration: none; color: white; font-size:30px;}
+    a:visited { text-decoration: none; }
+    a:hover { text-decoration: none; }
+    a:focus { text-decoration: none; }
+    a:hover, a:active { text-decoration: none; }
+    </style>
+</head>
+
+<body>
+    <section class="header">
+        {{grade}}
+        <h1><a class="Companyname" href="./Home.html">가은</a></h1>
+    </section>
+    <section class="mid">
+        <div class="midbox">
+            <div>
+                <p style="font-size: 50px;">Q. 원하는 상대의 전공은?</p>
+            </div>
+            <div>
+                <button class="answer1" onclick="handleButtonClick('학생군사교육단')">학생군사교육단</button>
+                <button class="answer1" onclick="handleButtonClick('인문사회과학대학')">인문사회과학대학</button>
+                <button class="answer1" onclick="handleButtonClick('사범대학')">사범대학</button>
+                <button class="answer1" onclick="handleButtonClick('경영경제대학')">경영경제대학</button>
+                <button class="answer1" onclick="handleButtonClick('융합공과대학')">융합공과대학</button>
+                <button class="answer1" onclick="handleButtonClick('문화예술대학')">문화예술대학</button>
+            </div>
+        </div>
+    </section>
+
+    </body>
+
+</html>

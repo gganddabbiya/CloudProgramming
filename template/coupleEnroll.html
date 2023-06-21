@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="{% static 'css/coupleEnroll.css' %}">
+</head>
+<body>
+    <section class="header">
+        <h1><a class="Companyname" href="./Home.html">가은</a></h1>
+    </section>
+  <div class="couple-page">
+    <div class="form">
+      <form class="couple-form" action = "{% url 'couple:couplecreate' %}" method = "post">
+        {% csrf_token %}
+        <input type="text" name = "user1" placeholder="내 아이디"/>
+        <input type="password" name = "user2" placeholder="상대방 아이디"/>
+        <input style="display:none;" id="register-btn" type="submit" placeholder="회원가입"/>
+        <label for="register-btn">등록</label>
+    </form>
+    </div>
+  </div>
+</body>
+</html>
